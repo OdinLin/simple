@@ -1,0 +1,55 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+    <form method="post">
+        <div class="form-group">
+            <label for="Algorithm">Algorithm Name</label>
+            <input type="text" class="form-control" id="algorithm_name" name="algorithm_name"
+                   placeholder="Algorithm Name" autofocus="">
+            <br>
+            <label for="dependency">dependency</label>
+            <textarea type="textbox" name="dependency" class="form-control" rows=10 cols=60></textarea>
+            <br>
+            <label for="code">Code</label>
+            <textarea type="textbox" name="code" class="form-control" rows=30 cols=80 ></textarea>
+            <br>
+            <input type=submit value=Create>
+            <br>
+        </div>
+
+        {#        <input type="submit" name="my-form" value="Send">#}
+
+        {#        <div class="row">#}
+        {#            <div class="col-sm-2 ">#}
+        {#                <input name="source" value="open" type="radio" checked="checked"> 开源#}
+        {#            </div>#}
+        {#            <div class="col-sm-2 ">#}
+        {#                <input name="source" value="closed" type="radio"> 闭源#}
+        {#            </div>#}
+        {##}
+        {#        </div>#}
+
+        {#        <div class="row">#}
+        {#            <div class="col-sm-2 ">#}
+        {#                <label>#}
+        {#                    <input name="s_option" value="basketball" type="checkbox"> 篮球#}
+        {#                </label>#}
+        {#            </div>#}
+        {#            <div class="col-sm-2 ">#}
+        {#                <label>#}
+        {#                    <input name="s_option" value="football" type="checkbox"> 足球#}
+        {#                </label>#}
+        {#            </div>#}
+        {#            <div class="col-sm-2 ">#}
+        {#                <label>#}
+        {#                    <input name="s_option" value="badminton" type="checkbox"> 羽毛球#}
+        {#                </label>#}
+        {#            </div>#}
+        {#        </div>#}
+
+        {#        <select class="form-control" name="language" id="language">#}
+        {#            <option></option>#}
+        {#            <option selected="selected">--Language--</option>#}
+        {#            <option>Python</option>#}
+        {#        </select>#}
+    </form>
+{% endblock %}
