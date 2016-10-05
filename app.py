@@ -16,9 +16,7 @@ from flask.ext.admin import helpers, expose
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-
-# Create custom admin view
-class MyAdminView(admin.BaseView):
+class NewAlgoView(admin.BaseView):
     @admin.expose('/', methods=('GET', 'POST'))
     def index(self):
         if request.method == 'POST':
@@ -29,7 +27,7 @@ class MyAdminView(admin.BaseView):
                     text_file.write(request.values.get('dependency'))
                 with open(request.values.get('algorithm_name') + '.py', "w") as text_file:
                     text_file.write(request.values.get('code'))
-        return self.render('myadmin.html')
+        return self.render('new_algo.html')
 
     # @admin.expose('/', methods=['POST'])
     # def index(self):
@@ -43,10 +41,10 @@ class MyAdminView(admin.BaseView):
             return False
 
 
-class AnotherAdminView(admin.BaseView):
+class ManageAlgoView(admin.BaseView):
     @admin.expose('/')
     def index(self):
-        return self.render('anotheradmin.html')
+        return self.render('manage_algo.html')
 
     @admin.expose('/test/')
     def test(self):
@@ -275,10 +273,10 @@ except OSError:
 init_login()
 # Create admin interface
 # admin = admin.Admin(name="Algorithm", template_mode='bootstrap3')
-admin = admin.Admin(app, 'Algorithm', index_view=MyAdminIndexView(), base_template='my_master.html')
+admin = admin.Admin(app, 'Algorithm', index_view=MyAdminIndexView(), base_template='master.html')
 admin.add_view(MyFileAdmin(path, '/files/', name='Files'))
-admin.add_view(MyAdminView(name="new algo", category='Algo'))
-admin.add_view(AnotherAdminView(name="manage algo", category='Algo'))
+admin.add_view(NewAlgoView(name="new algo", category='Algo'))
+admin.add_view(ManageAlgoView(name="manage algo", category='Algo'))
 admin.add_view(MyModelView(User, db.session))
 # admin.init_app(app)
 
