@@ -90,3 +90,5 @@ ENV/
 .idea/workspace.xml
 files/
 .sqlite
+marathon_api.py
+user_db.sqlite
